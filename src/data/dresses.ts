@@ -11,6 +11,8 @@ export type Dress = {
     collars?: CollarType[]
 };
 
+
+
 export const dresses: Dress[] = [
 
     {

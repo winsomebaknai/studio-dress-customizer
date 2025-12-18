@@ -154,7 +154,7 @@ export default function CustomizeView({ dress, onBack }: Props) {
   </h4>
 
   <div className="grid grid-cols-3 gap-3">
-    {dress.sleeves.map((s) => (
+    {dress.sleeves.map((s: "short" | "long" | "sleeveless") => (
       <button
         key={s}
         onClick={() => setSleeve(s)}
@@ -178,7 +178,7 @@ export default function CustomizeView({ dress, onBack }: Props) {
     </h4>
 
     <div className="grid grid-cols-3 gap-3">
-      {dress.collars.map((c) => (
+      {dress.collars.map((c: "round" | "vneck") => (
         <button
           key={c}
           onClick={() => setCollar(c)}
