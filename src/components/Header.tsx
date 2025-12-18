@@ -1,11 +1,23 @@
-export default function Header() {
+type Props = {
+  back?: boolean;
+  onBack?: () => void;
+};
+
+export default function Header({ back, onBack }: Props) {
   return (
-    <header className="bg-white border-b">
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <h1 className="text-xl font-bold text-purple-600">
-          Studio
-        </h1>
-      </div>
+    <header className="flex items-center gap-3 px-4 py-3 bg-white shadow-sm">
+      {back && (
+        <button
+          onClick={onBack}
+          className="text-sm font-medium text-purple-600 hover:text-purple-700"
+        >
+          ← Back
+        </button>
+      )}
+
+      <h1 className="text-lg font-semibold text-gray-800">
+        Studio
+      </h1>
     </header>
   );
 }
