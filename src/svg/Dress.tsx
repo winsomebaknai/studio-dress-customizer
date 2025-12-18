@@ -1,11 +1,15 @@
+type CollarType = "round" | "vneck";
+
 type Props = {
   color?: string;
   sleeve?: "short" | "long" | "sleeveless";
+  collar?: CollarType;
 };
 
 export default function Dress({
   color = "#ec4899",
   sleeve = "short",
+  collar = "round",
 }: Props) {
   return (
     <svg viewBox="0 0 200 280" className="w-56 h-auto">
@@ -43,16 +47,27 @@ export default function Dress({
         </>
       )}
 
-      {/* Neck */}
-      <ellipse
-        cx="100"
-        cy="40"
-        rx="16"
-        ry="10"
-        fill="#e5e7eb"
-        stroke="#1f2937"
-        strokeWidth="2"
-      />
+      {/* Collar / Neckline */}
+      {collar === "round" && (
+        <ellipse
+          cx="100"
+          cy="40"
+          rx="16"
+          ry="10"
+          fill="#e5e7eb"
+          stroke="#1f2937"
+          strokeWidth="2"
+        />
+      )}
+
+      {collar === "vneck" && (
+        <path
+          d="M85 30 L100 55 L115 30"
+          fill="none"
+          stroke="#1f2937"
+          strokeWidth="2"
+        />
+      )}
     </svg>
   );
 }

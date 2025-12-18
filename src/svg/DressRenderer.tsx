@@ -7,14 +7,15 @@ type Props = {
   type: string;
   color?: string;
   sleeve?: "short" | "long" | "sleeveless";
+  collar?: "round" | "vneck";
 };
 
-export default function DressRenderer({ type, color, sleeve }: Props) {
+export default function DressRenderer({ type, color, sleeve, collar }: Props) {
   switch (type) {
     case "tshirt":
-      return <TShirt color={color} sleeve={sleeve} />;
+      return <TShirt color={color} sleeve={sleeve} collar={collar}/>;
     case "dress":
-      return <Dress color={color} sleeve={sleeve} />;
+      return <Dress color={color} sleeve={sleeve} collar={collar}/>;
     case "hoodie":
       return <Hoodie color={color} />;
     case "tank":
